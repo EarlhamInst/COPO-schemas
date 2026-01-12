@@ -15,10 +15,10 @@
                 <FIELD>
                     <LABEL>Sample</LABEL>
                     <NAME>sample</NAME>
-                    <DESCRIPTION>A unique alphanumeric reference or identifier for the sample. Example: sample123</DESCRIPTION>
+                    <DESCRIPTION>A unique reference or identifier for the sample. Example: sample123</DESCRIPTION>
                     <FIELD_TYPE>
                         <TEXT_FIELD>
-                            <REGEX_VALUE>^[a-zA-Z0-9]+$</REGEX_VALUE>
+                            <TEXT_FIELD/>
                         </TEXT_FIELD>
                     </FIELD_TYPE>
                     <MANDATORY>mandatory</MANDATORY>
