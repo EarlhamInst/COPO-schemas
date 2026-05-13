@@ -339,10 +339,10 @@ classes:
       sample_id:
         identifier: true
         required: true
-        description: A unique alphanumeric reference or identifier for the sample.
-          This field must provide a consistent, unambiguous way to identify the sample
-          within and across datasets. It can be a name, code, or accession-like format,
-          as long as it remains unique.
+        description: A unique reference or identifier for the sample. This field must
+          provide a consistent, unambiguous way to identify the sample within and
+          across datasets. It can be a name, code, or accession-like format, as long
+          as it remains unique.
         examples:
         - value: SAMPLE001
         slot_uri: ei:sample_id
@@ -598,10 +598,10 @@ classes:
       sample_id:
         identifier: false
         required: true
-        description: A unique alphanumeric reference or identifier for the sample
-          associated with the cell suspension. This field must provide a consistent,
-          unambiguous way to identify the sample within and across datasets. It can
-          be a name, code, or accession-like format, as long as it remains unique.
+        description: A unique reference or identifier for the sample associated with
+          the cell suspension. This field must provide a consistent, unambiguous way
+          to identify the sample within and across datasets. It can be a name, code,
+          or accession-like format, as long as it remains unique.
         examples:
         - value: SAMPLE001
         slot_uri: ei:sample_id
@@ -2021,20 +2021,6 @@ classes:
         range: string
         multivalued: false
         inlined: false
-      sample_id:
-        identifier: false
-        required: true
-        description: A unique alphanumeric reference or identifier for the sample
-          associated with the cell suspension. This field must provide a consistent,
-          unambiguous way to identify the sample within and across datasets. It can
-          be a name, code, or accession-like format, as long as it remains unique.
-        examples:
-        - value: SAMPLE001
-        slot_uri: ei:sample_id
-        domain: File
-        range: string
-        multivalued: false
-        inlined: false
       library_prep_id:
         identifier: false
         required: true
@@ -2444,6 +2430,8 @@ classes:
 enums:
   Workflow:
     permissible_values:
+      ? ''
+      : {}
       Laser microdissection: {}
       Laser microdissection, Culturing: {}
       Laser microdissection, Culturing, Sequencing: {}
@@ -2454,6 +2442,8 @@ enums:
       Spatial Transcriptomics: {}
   Licence:
     permissible_values:
+      ? ''
+      : {}
       Apache-2.0: {}
       CC-BY-4.0: {}
       CC-BY-SA-4.0: {}
@@ -2462,62 +2452,84 @@ enums:
       MIT: {}
   Isolation_kit:
     permissible_values:
+      ? ''
+      : {}
       10x Nuclei Isolation Kit: {}
       3' standard throughput kit: {}
       Custom: {}
   Suspension_type:
     permissible_values:
+      ? ''
+      : {}
       Cell: {}
       Nuclei: {}
       Protoplast: {}
   Primer:
     permissible_values:
+      ? ''
+      : {}
       Oligo-dT: {}
       Random: {}
   Primeness:
     permissible_values:
+      ? ''
+      : {}
       3': {}
       5': {}
       Both: {}
   End_bias:
     permissible_values:
+      ? ''
+      : {}
       '3': {}
       '5': {}
   Library_strand:
     permissible_values:
+      ? ''
+      : {}
       Antisense: {}
       Both: {}
       Sense: {}
       Unstranded: {}
   Spike_in:
     permissible_values:
+      ? ''
+      : {}
       'No': {}
       'Yes': {}
   Dual_single_index:
     permissible_values:
+      ? ''
+      : {}
       Dual: {}
       Single: {}
   Cell_phenotype:
     permissible_values:
+      ? ''
+      : {}
       CD41+: {}
       CD41-: {}
   Library_selection:
     permissible_values:
+      ? ''
+      : {}
       5-methylcytidine antibody: {}
       CAGE: {}
       ChIP: {}
       ChIP-Seq: {}
-      DNase: {}
+      Dnase: {}
       HMPR: {}
       Hybrid Selection: {}
+      Inverse rRNA: {}
       Inverse rRNA selection: {}
       MBD2 protein methyl-CpG binding domain: {}
       MDA: {}
       MF: {}
-      MNase: {}
       MSLL: {}
+      Mnase: {}
       Oligo-dT: {}
       PCR: {}
+      PolyA: {}
       RACE: {}
       RANDOM: {}
       RANDOM PCR: {}
@@ -2525,6 +2537,8 @@ enums:
       Reduced Representation: {}
       Restriction Digest: {}
       cDNA: {}
+      cDNA_oligo_dT: {}
+      cDNA_randomPriming: {}
       other: {}
       padlock probes capture method: {}
       repeat fractionation: {}
@@ -2532,15 +2546,21 @@ enums:
       unspecified: {}
   Library_source:
     permissible_values:
+      ? ''
+      : {}
       GENOMIC: {}
+      GENOMIC SINGLE CELL: {}
       METAGENOMIC: {}
       METATRANSCRIPTOMIC: {}
       OTHER: {}
       SYNTHETIC: {}
       TRANSCRIPTOMIC: {}
+      TRANSCRIPTOMIC SINGLE CELL: {}
       VIRAL RNA: {}
   Library_strategy:
     permissible_values:
+      ? ''
+      : {}
       AMPLICON: {}
       ATAC-seq: {}
       Bisulfite-Seq: {}
@@ -2561,6 +2581,7 @@ enums:
       MNase-Seq: {}
       MRE-Seq: {}
       MeDIP-Seq: {}
+      NOMe-Seq: {}
       OTHER: {}
       POOLCLONE: {}
       RAD-Seq: {}
@@ -2668,34 +2689,46 @@ enums:
       UG 100: {}
   Lib_layout:
     permissible_values:
+      ? ''
+      : {}
       Other: {}
       Paired: {}
       Single: {}
       Vector: {}
   Umi_barcode_read:
     permissible_values:
+      ? ''
+      : {}
       index1: {}
       index2: {}
       read1: {}
       read2: {}
   Cell_barcode_read:
     permissible_values:
+      ? ''
+      : {}
       index1: {}
       index2: {}
       read1: {}
       read2: {}
   Cdna_read:
     permissible_values:
+      ? ''
+      : {}
       index1: {}
       index2: {}
       read1: {}
       read2: {}
   Post_analysis_cell_well_quality:
     permissible_values:
+      ? ''
+      : {}
       Fail: {}
       Pass: {}
   Other_derived_cell_attributes:
     permissible_values:
+      ? ''
+      : {}
       Cluster: {}
       Count: {}
       Gene: {}
@@ -2703,6 +2736,8 @@ enums:
       tSNE coordinates: {}
   Matrix_type:
     permissible_values:
+      ? ''
+      : {}
       imputed: {}
       log1p: {}
       nomalised: {}
@@ -2711,6 +2746,8 @@ enums:
       scaled: {}
   Normalisation_method:
     permissible_values:
+      ? ''
+      : {}
       Library Size Normalisation: {}
       Log Normalisation: {}
       SCNorm: {}
@@ -2718,6 +2755,8 @@ enums:
       scran: {}
   Dimensionality_reduction:
     permissible_values:
+      ? ''
+      : {}
       Diffusion Map: {}
       ICA: {}
       NMF: {}
@@ -2726,6 +2765,8 @@ enums:
       t-SNE: {}
   Clustering_distance_metric:
     permissible_values:
+      ? ''
+      : {}
       cosine: {}
       euclidean: {}
       hamming: {}
@@ -2734,6 +2775,8 @@ enums:
       mehalanobis: {}
   Expression_data_file_format:
     permissible_values:
+      ? ''
+      : {}
       csv: {}
       h5ad: {}
       loom: {}
@@ -2741,6 +2784,8 @@ enums:
       rds: {}
   Neg_cont_type:
     permissible_values:
+      ? ''
+      : {}
       DNA-free PCR mix: {}
       Distilled water: {}
       Empty collection device: {}
@@ -2750,6 +2795,8 @@ enums:
       Sterile syringe: {}
   Assembly_qual:
     permissible_values:
+      ? ''
+      : {}
       Finished genome: {}
       Genome fragment(s): {}
       High-quality draft genome: {}
@@ -2757,6 +2804,8 @@ enums:
       Medium-quality draft genome: {}
   Cell_number:
     permissible_values:
+      ? ''
+      : {}
       '1': {}
       1000000+: {}
       100001-500000: {}
@@ -2769,6 +2818,8 @@ enums:
       51-100: {}
   Material:
     permissible_values:
+      ? ''
+      : {}
       Cell culture: {}
       Cell line: {}
       Cell specimen: {}
@@ -2779,6 +2830,8 @@ enums:
       Specimen from Organism: {}
   Cell_enrichment:
     permissible_values:
+      ? ''
+      : {}
       Bead-based sorting: {}
       Cell culture: {}
       Centrifugation: {}
@@ -2787,6 +2840,8 @@ enums:
       Raman-spectometry sorting, cell culture: {}
   Tissue_dissociation:
     permissible_values:
+      ? ''
+      : {}
       Fine needle trituration: {}
       Fluids: {}
       Mechanical dissociation: {}
