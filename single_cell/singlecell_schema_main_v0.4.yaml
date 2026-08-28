@@ -680,17 +680,6 @@ classes:
         range: string
         multivalued: false
         inlined: false
-      suspension_volume_%C2%B5l:
-        identifier: false
-        required: false
-        description: "The volume of the cell suspension in microlitres (\xB5L)."
-        examples:
-        - value: '100'
-        slot_uri: ei:suspension_volume_%C2%B5l
-        domain: Cell Suspension
-        range: string
-        multivalued: false
-        inlined: false
       suspension_concentration_cells_per_%C2%B5l:
         identifier: false
         required: false
@@ -717,8 +706,8 @@ classes:
       loading_volume_%C2%B5l:
         identifier: false
         required: false
-        description: The volume of the cell suspension loaded into the single-cell
-          RNA-sequencing system for analysis.
+        description: "The volume of the cell suspension loaded into the single-cell\
+          \ RNA-sequencing system for analysis in microlitres (\xB5L)."
         examples:
         - value: '10'
         slot_uri: ei:loading_volume_%C2%B5l
@@ -981,7 +970,9 @@ classes:
         identifier: false
         required: true
         description: Barcode sequence used on the i5 adapter during library preparation
-          for identifying samples in multiplexed single-cell RNA-sequencing.
+          for identifying samples in multiplexed single-cell RNA-sequencing. The DNA
+          barcode sequence (A, C, G, T), not a plate or well identifier should be
+          specified.
         examples:
         - value: ATCACG
         slot_uri: ei:i5_index
@@ -993,7 +984,8 @@ classes:
         identifier: false
         required: true
         description: Barcode sequence used on the i7 adapter to distinguish samples
-          in multiplexed sequencing runs.
+          in multiplexed sequencing runs. The nucleotide sequence (A, C, G, T), not
+          a plate or well identifier should be specified.
         examples:
         - value: CGATGT
         slot_uri: ei:i7_index
@@ -1011,29 +1003,6 @@ classes:
         slot_uri: ei:dual_single_index
         domain: Library Preparation
         range: enum
-        multivalued: false
-        inlined: false
-      i5_sequence:
-        identifier: false
-        required: true
-        description: The nucleotide sequence of the i5 index used in multiplexing
-          during sequencing.
-        examples:
-        - value: ATCGTAGC
-        slot_uri: ei:i5_sequence
-        domain: Library Preparation
-        range: string
-        multivalued: false
-        inlined: false
-      i7_sequence:
-        identifier: false
-        required: true
-        description: The specific nucleotide sequence of the i7 index used for a sample.
-        examples:
-        - value: TGCATGCA
-        slot_uri: ei:i7_sequence
-        domain: Library Preparation
-        range: string
         multivalued: false
         inlined: false
       plate_id:
@@ -1538,6 +1507,106 @@ classes:
         slot_uri: ei:other_derived_cell_attributes
         domain: Analysis Derived Data
         range: enum
+        multivalued: false
+        inlined: false
+      number_of_cells_analysed:
+        identifier: false
+        required: false
+        description: Total number of cells retained after quality-control filtering
+          and included in the downstream analysis.
+        examples:
+        - value: '12458'
+        slot_uri: ei:number_of_cells_analysed
+        domain: Analysis Derived Data
+        range: string
+        multivalued: false
+        inlined: false
+      genes_detected_per_cell:
+        identifier: false
+        required: false
+        description: Mean or median number of genes detected per cell among the cells
+          included in the analysis.
+        examples:
+        - value: '1842'
+        slot_uri: ei:genes_detected_per_cell
+        domain: Analysis Derived Data
+        range: string
+        multivalued: false
+        inlined: false
+      cell_level_qc_threshold:
+        identifier: false
+        required: false
+        description: Criteria and cut-off values used to retain or exclude individual
+          cells from downstream analysis.
+        examples:
+        - value: "\u2265200 genes"
+        - value: "\u22645"
+        - value: 000 genes
+        - value: <15% mitochondrial reads
+        slot_uri: ei:cell_level_qc_threshold
+        domain: Analysis Derived Data
+        range: string
+        multivalued: false
+        inlined: false
+      number_of_clusters_or_cell_populations:
+        identifier: false
+        required: false
+        description: Total number of computationally identified clusters or annotated
+          cell populations reported in the study.
+        examples:
+        - value: '8'
+        slot_uri: ei:number_of_clusters_or_cell_populations
+        domain: Analysis Derived Data
+        range: string
+        multivalued: false
+        inlined: false
+      main_single_cell_response:
+        identifier: false
+        required: false
+        description: Principal biological response or finding identified through the
+          single-cell analysis.
+        examples:
+        - value: Increased interferon signalling in macrophages
+        slot_uri: ei:main_single_cell_response
+        domain: Analysis Derived Data
+        range: string
+        multivalued: false
+        inlined: false
+      separation_score:
+        identifier: false
+        required: false
+        description: Reported metric used to quantify separation between experimental
+          conditions, clusters or cell populations.
+        examples:
+        - value: '0.62'
+        slot_uri: ei:separation_score
+        domain: Analysis Derived Data
+        range: string
+        multivalued: false
+        inlined: false
+      number_of_candidate_genes:
+        identifier: false
+        required: false
+        description: Total number of marker, switch or other candidate genes identified
+          in the analysis.
+        examples:
+        - value: '27'
+        slot_uri: ei:number_of_candidate_genes
+        domain: Analysis Derived Data
+        range: string
+        multivalued: false
+        inlined: false
+      key_analysis_method_or_threshold:
+        identifier: false
+        required: false
+        description: Principal computational method or threshold used to derive the
+          reported downstream-analysis results.
+        examples:
+        - value: Leiden clustering
+        - value: 'resolution = 0.8; DE threshold: FDR <0.05'
+        slot_uri: ei:key_analysis_method_or_threshold
+        domain: Analysis Derived Data
+        range: string
         multivalued: false
         inlined: false
   Raw Data Processing:
